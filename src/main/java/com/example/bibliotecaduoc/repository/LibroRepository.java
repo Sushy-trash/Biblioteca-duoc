@@ -1,5 +1,6 @@
 package com.example.bibliotecaduoc.repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
@@ -12,14 +13,14 @@ public class LibroRepository {
     private List<libro> listaLibros= new ArrayList<>();
 
     //Metodo que retorna todos los libros
-    public List<Libro> obtenerLibros(){
+    public List<libro> obtenerLibros(){
 
         return listaLibros;
     }
 
 
     //buscar un libro por su id
-    public Libro buscarPorId(int id){
+    public libro buscarPorId(int id){
         for(libro libro: listaLibros){
             if(libro.getId()==id){
                 return libro;
@@ -34,7 +35,7 @@ public class LibroRepository {
 
 
     //buscar un libro por su isbn
-    public Libro porIsbn(String isbn){
+    public libro porIsbn(String isbn){
 
         for(libro libro: listaLibros){
 
@@ -50,7 +51,7 @@ public class LibroRepository {
 
 
     //metodo guardar libro
-    public libro guardaLibro(Libro lib){
+    public libro guardaLibro(libro lib){
 
         listaLibros.add(lib);
         return lib;
@@ -58,12 +59,12 @@ public class LibroRepository {
 
 
     //metodo para actualizar libros por su id
-    public Libro actualizar(libro lib){
+    public libro actualizar(libro lib){
 
         int id=0;
         int idPosicion=0;
 
-        for(i=0;i<listaLibros.size();i++){
+        for(int i=0;i<listaLibros.size();i++){
 
             if(listaLibros.get(i).getId()==lib.getId()){
 
@@ -73,7 +74,7 @@ public class LibroRepository {
 
         }
 
-        libro libro1=new Libro();
+        libro libro1=new libro();
         libro1.setId(id);
         libro1.setTitulo(lib.getTitulo());
         libro1.setAutor(lib.getAutor());
@@ -86,4 +87,40 @@ public class LibroRepository {
         listaLibros.set(idPosicion, libro1);
         return libro1;
     }
+
+    //metodo par aeliminar un libro mediante su id
+    public void eliminar(int id){
+        //alternativa 1 
+        libro libro = buscarPorId(id);
+        if(libro !=null){
+
+            listaLibros.remove(libro);
+        }
+
+
+
+        //alternativa 2
+        int idPosicion=0;
+
+        for(int i=0;i< listaLibros.size();i++){
+            if(listaLibros.get(i).getId()==id){
+                idPosicion=i;
+                break;
+
+            }
+
+        }
+        if(idPosicion>0){
+            listaLibros.remove(idPosicion);
+
+        }
+
+
+        //otra alternativa
+        listaLibros.removeIf(x-> x.getId()==id);
+
+    }
+
+
+
 }
