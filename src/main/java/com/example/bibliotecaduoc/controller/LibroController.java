@@ -64,11 +64,8 @@ public class LibroController {
 
     }
     
-
     @GetMapping("/total")
     public int totalLibrosv2() {
         return libroService.totalLibrosv2();
     }
-    
-
 }

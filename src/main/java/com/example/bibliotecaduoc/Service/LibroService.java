@@ -14,8 +14,6 @@ public class LibroService {
     @Autowired
     private LibroRepository libroRepository;
 
-
-
     public List<libro> getLibros(){
         return libroRepository.obtenerLibros();
 
@@ -33,7 +31,6 @@ public class LibroService {
 
     }
 
-
     public libro updateLibro(libro libro){
         return libroRepository.actualizar(libro);
 
@@ -45,12 +42,10 @@ public class LibroService {
 
     }
 
-
     public int totalLibrosv1(){
         return libroRepository.obtenerLibros().size();
 
     }
-
 
     public int totalLibrosv2(){
         return libroRepository.totalLibros();

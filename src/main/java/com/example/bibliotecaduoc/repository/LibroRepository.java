@@ -18,8 +18,6 @@ public class LibroRepository {
         return listaLibros.size();
     }
     
-
-
     public LibroRepository(){
 
         //agregar libros por defecto
@@ -55,8 +53,6 @@ public class LibroRepository {
 
     }
 
-
-
     //buscar un libro por su isbn
     public libro porIsbn(String isbn){
 
@@ -70,8 +66,6 @@ public class LibroRepository {
         }
         return null;
     }
-
-
 
     //metodo guardar libro
     public libro guardaLibro(libro lib){
