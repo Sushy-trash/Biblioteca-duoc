@@ -46,4 +46,18 @@ public class LibroService {
     }
 
 
+    public int totalLibrosv1(){
+        return libroRepository.obtenerLibros().size();
+
+    }
+
+
+    public int totalLibrosv2(){
+        return libroRepository.totalLibros();
+
+    }
+    public int totalLibros(){
+        return libroRepository.obtenerLibros().size();
+
+    }
 }
