@@ -21,6 +21,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 
 
+
+
 @Service
 @RestController
 @RequestMapping("/api/v1/libros")
@@ -62,7 +64,8 @@ public class LibroController {
 
     }
     
-
-    
-
+    @GetMapping("/total")
+    public int totalLibrosv2() {
+        return libroService.totalLibrosv2();
+    }
 }
